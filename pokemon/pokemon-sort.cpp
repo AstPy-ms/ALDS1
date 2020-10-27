@@ -60,7 +60,7 @@ void insertionSort (vector<vector<string>> A, int n) {
 int main(){
 
     ifstream file("./pokemon.csv");  // 読み込むcsv
-    vector<vector<string>> data;  // csvファイルをvectorに整理する用
+    vector<vector<string>> data;  // csvファイルをvectorに整理する用。実質的な2次元配列。
     string str;  // csvファイルの1行まるまる読み込む用のtmp str
     int p;
     int flg = 0;
@@ -82,7 +82,8 @@ int main(){
             str = str.substr(p+1);
         }
 
-        if(flg){        
+        // flgで分けることで、1行目の説明を取らずに済む。
+        if(flg){
             // pythonでいうとこのappend
             inner.push_back(str);
             data.push_back(inner);
