@@ -63,6 +63,7 @@ int main(){
     vector<vector<string>> data;  // csvファイルをvectorに整理する用
     string str;  // csvファイルの1行まるまる読み込む用のtmp str
     int p;
+    int flg = 0;
 
     while(getline(file, str)){
 
@@ -72,7 +73,7 @@ int main(){
         vector<string> inner;
 
         //コンマがあるかを探し、そこまでをdataに格納
-        while( (p = str.find(",")) != str.npos ){
+        while( (p = str.find(",")) != str.npos){
             
             // 文字列の指定位置から最後まで、もしくは、指定位置から指定した数の文字列を取得するらしい。
             inner.push_back(str.substr(0, p));
@@ -80,10 +81,14 @@ int main(){
             //strの中身は", "の2文字を飛ばす
             str = str.substr(p+1);
         }
-        
-        // pythonでいうとこのappend
-        inner.push_back(str);
-        data.push_back(inner);
+
+        if(flg){        
+            // pythonでいうとこのappend
+            inner.push_back(str);
+            data.push_back(inner);
+        }
+
+        flg++;
     }
 
     insertionSort(data, data.size());
