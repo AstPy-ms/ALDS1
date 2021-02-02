@@ -34,6 +34,10 @@ int solve(int i, int m){
 }
 
 int main() {
+
+    // 学修番号と名前の表示
+    printf("学修番号 : 19140674\n氏名 : 久下 柾\n");
+
 	int q, M, i;
 	FILE *fp;
 	
